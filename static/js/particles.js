@@ -200,5 +200,9 @@
     }
   }
 
-  document.addEventListener("DOMContentLoaded", () => new ParticleSystem());
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => new ParticleSystem());
+  } else {
+    new ParticleSystem();
+  }
 })();
