@@ -1,0 +1,34 @@
+{{ define "main" }}
+<canvas id="particle-canvas"></canvas>
+
+<div class="container">
+  <div class="name-block">
+    <h1>Louis Sandra<span class="phd">, PhD</span></h1>
+  </div>
+
+  <p class="subtitle">Scientific Leadership through Model-Informed Drug Development</p>
+</div>
+<script>
+  function matchSubtitleWidth() {
+    const name = document.querySelector(".name-block h1");
+    const subtitle = document.querySelector(".subtitle");
+    if (!name || !subtitle) return;
+
+    const targetWidth = name.getBoundingClientRect().width;
+
+    // Binary search for the font-size that makes subtitle match name width
+    let low = 8, high = 100, mid;
+    for (let i = 0; i < 20; i++) {
+      mid = (low + high) / 2;
+      subtitle.style.fontSize = mid + "px";
+      const w = subtitle.getBoundingClientRect().width;
+      if (w < targetWidth) low = mid;
+      else high = mid;
+    }
+    subtitle.style.fontSize = mid + "px";
+  }
+
+  document.addEventListener("DOMContentLoaded", matchSubtitleWidth);
+  window.addEventListener("resize", matchSubtitleWidth);
+</script>
+{{ end }}
