@@ -155,6 +155,27 @@ footer {
   }
 }
 
+/* Art page */
+body.art-page {
+  background-color: #f0f0f0;
+  overflow: hidden;
+}
+
+.art-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.art-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 /* Subtitle */
 .subtitle {
   margin-top: 1.5rem;
